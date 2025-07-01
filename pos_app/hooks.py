@@ -4,7 +4,15 @@ app_publisher = "POS"
 app_description = "POS App"
 app_email = "POS_APP@gmail.com"
 app_license = "MIT"
+before_request  = "pos_app.apis.auth.validate_auth"
 
+fixtures = [{
+        "doctype": "Custom Field",
+    },
+    {
+        "doctype": "Property Setter",
+    }
+]
 # Includes in <head>
 # ------------------
 
