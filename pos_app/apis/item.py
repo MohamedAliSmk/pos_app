@@ -70,11 +70,13 @@ def get_pos_items():
     price_map = {p.item_code: p.price_list_rate for p in prices}
 
     result = []
+    site_url = frappe.utils.get_url()
     for item in items:
+        image_url = site_url + item.image if item.image else None
         result.append({
             "item_code":item.name,
             "item_name": item.item_name,
-            "image": item.image,
+            "image": image_url,
             "price": price_map.get(item.name, 0.0)
         })
 

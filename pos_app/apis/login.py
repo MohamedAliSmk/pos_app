@@ -14,7 +14,7 @@ def normalize_url(url):
 @frappe.whitelist(allow_guest=True)
 def login_pos_user(site_url=None, usr=None, pswd=None):
     import json
-
+    customer = None
     site_url = site_url or frappe.form_dict.get("site_url")
     usr = usr or frappe.form_dict.get("usr")
     pswd = pswd or frappe.form_dict.get("pswd")
@@ -75,7 +75,7 @@ def login_pos_user(site_url=None, usr=None, pswd=None):
             if profile.terms:
                 pos_profile_dict["terms"] = profile.terms
 
-            customer = None
+            
             if profile.customer:
                 customer= profile.customer
 
