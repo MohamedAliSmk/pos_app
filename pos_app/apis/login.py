@@ -83,7 +83,7 @@ def login_pos_user(site_url=None, usr=None, pswd=None):
         payload = {
             "sub": user.name,
             "email": user.email,
-            "exp": datetime.datetime.utcnow() + datetime.timedelta(days=1)
+            "exp": datetime.datetime.utcnow() + datetime.timedelta(days=30)
         }
         token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
 
